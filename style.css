@@ -52,4 +52,24 @@ html, body{
 html, h1{
     text-align: center;
     text-decoration: dashed;
+
 }
+
+.header {
+    position: relative; /* allows absolute positioning inside */
+    text-align: center; /* keeps the h1 centered */
+    padding: 20px;
+    background-color: rgb(137, 198, 76);
+}
+
+.header .datetime {
+    position: absolute; /* position relative to .header */
+    top: 20px;          /* distance from top */
+    right: 20px;        /* distance from right */
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgb(190, 225, 190);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
