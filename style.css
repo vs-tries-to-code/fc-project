@@ -1,22 +1,122 @@
-.place-grid{
-    display: flex;
-    gap:70px;
-    padding:20px;
 
+
+nav, button {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    align-content: center;
+}
+
+html, body{
+    margin:0;
+    padding:0;
+    overflow-x: visible;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* This prevents the whole website from shaking/scrolling left-to-right */
 }
 
 .place-card{
-    width: 500px;
-    height: 500px;
+    width: 290px;
+    height: auto;
     outline:10px;
-
+    box-shadow: inset;
 }
 
 .place-card img{
-    width: auto;
-    height: 200px;
+    width: 290px;
+    height: 300px;
 }
 
 .header{
     text-align: center;
 }
+
+.header h1{
+    background-color: rgb(137, 198, 76);
+    font-size: 70;
+    font-weight: 300;
+}
+
+.header p{
+    background-color:rgb(190, 225, 190)
+}
+
+*{
+    background-color: beige;
+}
+
+html, h1{
+    text-align: center;
+    text-decoration: dashed;
+
+}
+
+.header {
+    position: relative; /* allows absolute positioning inside */
+    text-align: center; /* keeps the h1 centered */
+    padding: 20px;
+    background-color: rgb(137, 198, 76);
+}
+
+.header .datetime {
+    position: absolute; /* position relative to .header */
+    top: 20px;          /* distance from top */
+    right: 20px;        /* distance from right */
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgb(190, 225, 190);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Container that hides the extra cards */
+.slider-window {
+    position: relative;
+    overflow: hidden; /* This hides the cards that are "off-stage" */
+    width: 100%;
+    padding: 20px 0;
+}
+
+/* The long row of cards */
+.track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out; /* Makes the slide smooth */
+    padding: 0 60px;
+}
+
+/* Individual Card Styling */
+.place-card {
+    min-width: 300px; /* Each card must have a fixed width */
+    flex: 0 0 auto;   /* Prevents cards from shrinking */
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Navigation Buttons (Floating over the slider) */
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 4px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.is-hidden { display: none; }
+
