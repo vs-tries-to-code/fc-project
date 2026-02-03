@@ -36,18 +36,14 @@ html, body{
 }
 
 .header h1{
-    background-color: rgb(137, 198, 76);
+    
     font-size: 70;
     font-weight: 300;
 }
 
-.header p{
-    background-color:rgb(190, 225, 190)
-}
 
-*{
-    background-color: beige;
-}
+
+
 
 html, h1{
     text-align: center;
@@ -56,20 +52,131 @@ html, h1{
 }
 
 .header {
-    position: relative; /* allows absolute positioning inside */
-    text-align: center; /* keeps the h1 centered */
+    position: relative; 
+    text-align: center; 
     padding: 20px;
     background-color: rgb(137, 198, 76);
 }
 
 .header .datetime {
-    position: absolute; /* position relative to .header */
-    top: 20px;          /* distance from top */
-    right: 20px;        /* distance from right */
+    position: absolute; 
+    top: 20px;          
+    right: 20px;        
     font-size: 18px;
     font-weight: bold;
-    background-color: rgb(190, 225, 190);
+    
     padding: 5px 10px;
     border-radius: 5px;
 }
+
+
+:root {
+    --bg: #f4f4ee;
+    --text: #222;
+    --header-bg: #8fb14f;
+    --card-bg: #ffffff;
+    --border: #333;
+}
+
+
+body.dark-mode {
+    --bg: #121212;
+    --text: #f5f5f5;
+    --header-bg: #1a1a1a;
+    --card-bg: #1e1e1e;
+    --border: #aaa;
+}
+
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+
+
+#themeToggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background-color: #222;
+    color: #fff;
+    z-index: 1000;
+}
+
+
+.header {
+    background-color: var(--header-bg);
+    text-align: center;
+    padding: 40px 20px;
+    /* Dark mode header separation */
+body.dark-mode .header {
+    background-color: #1e1e1e; /* slightly lighter than body */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid #2c2c2c;
+}
+
+    
+
+}
+
+.subtitle {
+    max-width: 800px;
+    margin: 10px auto 0;
+}
+
+
+.nav {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.nav-btn {
+    padding: 10px 18px;
+    background-color: transparent;
+    border: 2px solid var(--border);
+    color: var(--text);
+    cursor: pointer;
+}
+
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 15px;
+    width: 280px;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    margin-top: 10px;
+}
+
+
+
+
+
+
 
