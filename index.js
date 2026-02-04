@@ -11,57 +11,19 @@ function updateDateTime() {
 setInterval(updateDateTime, 1000);
 updateDateTime();
 
+function searchCategory(){
+    const userInput = document.getElementById("searchInput").value;
 
-document.addEventListener("DOMContentLoaded", () => {
+    const searchFor = userInput.toLowerCase().trim();
 
-    const buttons = document.querySelectorAll(".nav-button");
+    const targetSection = document.getElementById(searchFor);
 
-    const beachSection = document.querySelector(".beach-section");
-    const religiousSection = document.querySelector(".religious-places-section");
-    const museumsSection = document.querySelector(".musuems-section");
-    const othersSection = document.querySelector(".others-section");
-
-    function hideAllSections() {
-        beachSection.style.display = "none";
-        religiousSection.style.display = "none";
-        museumsSection.style.display = "none";
-        othersSection.style.display = "none";
-    }
-
-    // Show beaches by default
-    hideAllSections();
-    beachSection.style.display = "block";
-
-    buttons.forEach(button => {
-        button.addEventListener("click", () => {
-            hideAllSections();
-
-            switch (button.textContent) {
-                case "Beaches":
-                    beachSection.style.display = "block";
-                    break;
-                case "Places of Worship":
-                    religiousSection.style.display = "block";
-                    break;
-                case "Museums":
-                    museumsSection.style.display = "block";
-                    break;
-                case "More":
-                    othersSection.style.display = "block";
-                    break;
-            }
+    if (targetSection){
+        targetSection.scrollIntoView({
+            behavior: "smooth"
         });
-    });
-});
-
-const toggleBtn = document.getElementById("themeToggle");
-
-toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-
-    toggleBtn.textContent =
-        document.body.classList.contains("dark-mode")
-            ? "Light Mode"
-            : "Dark Mode";
-});
-
+    }
+    else{
+        alert("Category not found");
+    }
+}
