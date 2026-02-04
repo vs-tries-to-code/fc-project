@@ -1,48 +1,104 @@
+:root {
+    --bg-color: #f4f4ee;
+    --text-color: #222;
+    --card-bg: #ffffff;
+    --border-color: rgb(181, 157, 157);
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #eaeaea;
+    --card-bg: #1e1e1e;
+    --border-color: #444;
+}
+
+
+
+
+
 .place-grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: center;
     gap:70px;
     padding:20px;
+    overflow-x: auto;
 
 }
 
-nav, button {
+nav {
     display: flex;
     gap: 10px;
     padding: 20px;
     align-content: center;
 }
 
+
+
+
 html, body{
     margin:0;
     padding:0;
     overflow-x: visible;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
 }
 
+
+
 .place-card{
-    width: 100%;
-    height: auto;
-    outline:10px solid green;
-    box-shadow: inset 0 0 10px #000;
+    width: 400px;
+    height: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    gap: 0.25rem;
+    flex-shrink:0;
+    background-color: var(--card-bg);
+    color: var(--text-color);
 }
+
 
 .place-card img{
     width: 100%;
-    height: auto;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 1.2rem;
+}
+
+.place-card p{
+    font-size: medium;
+    line-height: 1.5;
+    text-align: justify;
+    padding: 1.5rem;
+    color: var(--text-color);
+
 }
 
 .header{
     text-align: center;
-    font-family:Georgia, serif;
+    position: relative; 
+    text-align: center; 
+    padding:300px;
+    background-color: transparent;
+    background-image: url("https://www.theleela.com/prod/content/assets/aio-banner/dekstop/Ponmudi-hill-station-.jpg?VersionId=v.v_O7nZ59.Mrk_ILdKk7xq8t_gzh5_.");
+    background-repeat: no-repeat;
 }
 
-.header h1{
-    
-    font-size: 70px;
+header .header h1{
+    background-color:transparent;
+    font-size: 60px;
     font-weight: 300;
+    font-family:fantasy;
+    color: aliceblue;
 }
 
-
+header .header p{
+    background-color:transparent;
+    font-size: 25px;
+    color: azure;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
 
 
@@ -52,49 +108,37 @@ html, h1{
 
 }
 
-.header {
-    position: relative; 
-    text-align: center; 
-    padding: 20px;
-    background-color: rgb(137, 198, 76);
+body.dark-mode .header {
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.45);
 }
+
 
 .header .datetime {
     position: absolute; 
     top: 20px;          
     right: 20px;        
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    
-    padding: 5px 10px;
+    background-color: transparent;
+    padding: 30px 60px;
     border-radius: 5px;
 }
 
+.header .search{
+    display:flex;
+    position: absolute;
+    top: 20px;
+    }
 
-:root {
-    --bg: #f4f4ee;
-    --text: #222;
-    --header-bg: #8fb14f;
-    --card-bg: #ffffff;
-    --border: #333;
+.search input{
+    width:200px;
 }
 
-
-body.dark-mode {
-    --bg: #121212;
-    --text: #f5f5f5;
-    --header-bg: #1a1a1a;
-    --card-bg: #1e1e1e;
-    --border: #aaa;
-}
-
-
-body {
-    margin: 0;
-    font-family: Georgia, serif;
-    background-color: var(--bg);
-    color: var(--text);
-    transition: all 0.3s ease;
+button {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
 }
 
 
@@ -102,89 +146,32 @@ body {
     position: fixed;
     top: 15px;
     left: 15px;
+    z-index: 1000;
+
     padding: 8px 14px;
     border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    background-color: #222;
-    color: #fff;
-    z-index: 1000;
+    font-size: 14px;
 }
 
-
-.header {
-    background-color: var(--header-bg);
-    text-align: center;
-    padding: 40px 20px;
-    
-body.dark-mode .header {
-    background-color: #1e1e1e; 
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
-    border-bottom: 1px solid #2c2c2c;
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;         
+    z-index: 99;          
+    border: none;         
+    outline: none;        
+    background-color: #555; 
+    color: white;         
+    cursor: pointer;     
+    padding: 15px;        
+    border-radius: 50%;   
+    font-size: 18px;      
+    width: 50px;
+    height: 50px;
+    transition: background-color 0.3s;
 }
 
-    
-
+#scrollTopBtn:hover {
+    background-color: #333;
 }
-
-.subtitle {
-    max-width: 800px;
-    margin: 10px auto 0;
-}
-
-
-.nav {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin: 25px 0;
-}
-
-.nav-btn {
-    padding: 10px 18px;
-    background-color: transparent;
-    border: 2px solid var(--border);
-    color: var(--text);
-    cursor: pointer;
-}
-
-
-.content {
-    padding: 20px;
-    text-align: center;
-}
-
-.cards {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border);
-    padding: 15px;
-    width: 280px;
-}
-
-.card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    margin-top: 10px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
